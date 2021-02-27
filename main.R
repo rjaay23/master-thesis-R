@@ -11,7 +11,7 @@ J <- c(0.7, 2)
 
 ###### Simulate Y - VAR(1) - student-t errors, T=100, dof=4 ######
 T_ <- 100
-sims <- 10
+sims <- 1000
 dof <- 4
 params_studentT <- matrix(nrow = sims, ncol = 5)
 for (i in 1:sims) {
@@ -37,7 +37,7 @@ write.table(params_studentT, file="results/params_studentT100.csv", sep = ',', r
 
 ###### Simulate Y - VAR(1) - student-t errors, T=200, dof=4 ######
 T_ <- 200
-sims <- 10
+sims <- 1000
 dof <- 4
 params_studentT <- matrix(nrow = sims, ncol = 5)
 for (i in 1:sims) {
