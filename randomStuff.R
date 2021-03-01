@@ -1,19 +1,40 @@
-# 
-# params100 <- read.csv(file='results/params_studentT100.csv', header=FALSE)
-# params200 <- read.csv(file='results/params_studentT200.csv', header=FALSE)
-# 
-# 
-# plot(density(params200[,1]), xlim=c(-4,4))
-# lines(density(params100[,1]), type = "l", col = "blue")
-# 
-# plot(density(params200[,2]), xlim=c(-4,4))
-# lines(density(params100[,2]), type = "l", col = "blue")
-# 
-# plot(density(params200[,3]), xlim=c(-4,4))
-# lines(density(params100[,3]), type = "l", col = "blue")
-# 
-# plot(density(params200[,4]), xlim=c(-4,4))
-# lines(density(params100[,4]), type = "l", col = "blue")
+library(ggplot2)
+
+params100 <- read.csv(file='results/params_studentT100.csv', header=FALSE, col.names=c("phi1", "phi2", "phi3", "phi4", "converge"))
+params200 <- read.csv(file='results/params_studentT200.csv', header=FALSE, col.names=c("phi1", "phi2", "phi3", "phi4", "converge"))
+
+ggplot() + 
+  geom_density(data=params100, aes(x=phi1, colour='T=100')) +
+  geom_density(data=params200, aes(x=phi1, colour='T=200')) +
+  geom_vline(xintercept = 0.7, linetype = "dashed")
+
+
+
+
+
+
+
+
+
+
+
+plot(density(params200[,1]), xlim=c(-4,4))
+lines(density(params100[,1]), type = "l", col = "blue")
+abline(v=0.7, col="red")
+legend(-4, 1, legend=c("Line 1", "Line 2"), col=c("red", "blue"), lty=1:2, cex=0.8)
+
+plot(density(params200[,2]), xlim=c(-4,4))
+lines(density(params100[,2]), type = "l", col = "blue")
+abline(v=-1.3, col="red")
+
+plot(density(params200[,3][params200[,3] > -4 &  params200[,3] < 4]), xlim=c(-4,4))
+lines(density(params100[,3][params100[,3] > -4 &  params100[,3] < 4]), type = "l", col = "blue")
+abline(v=0, col="red")
+
+plot(density(params200[,4][params200[,4] > -4 &  params200[,4] < 4]), xlim=c(-4,4))
+lines(density(params100[,4][params100[,4] > -4 &  params100[,4] < 4]), type = "l", col = "blue")
+abline(v=2, col="red")
+
 # 
 # 
 # 
