@@ -8,8 +8,37 @@ ggplot() +
   geom_density(data=params200, aes(x=phi1, colour='T=200')) +
   geom_vline(xintercept = 0.7, linetype = "dashed")
 
+ysim_df <- as.data.frame(sim$Y_sim)
+ysim_df$ID <- seq.int(nrow(ysim_df))
 
 
+library(ggplot2)
+
+ggplot() + 
+  geom_line(data=ysim_df, aes(x=ID, y=V1, colour='Y_1')) +
+  geom_line(data=ysim_df, aes(x=ID, y=V2, colour='Y_2')) +
+  xlab("") + 
+  ylab("")
+
+# T_ <- 1000
+# dof <- 4
+# 
+# sim <- simulateVar1_studentT(T_, dof, A, J)
+# 
+# install.packages('tseries') 
+# library(tseries)
+# adf.test(sim$Y_sim[,1])
+# adf.test(sim$Y_sim[,2])
+
+# ggplot() + 
+#   # geom_line(data=statistics_df[which(statistics_df$H == "dynamic acf/ccf" & statistics_df$Phi == "phi1"),], aes(x=T, y=SE, colour='Dynamic ACF/CCF')) +
+#   geom_line(data=statistics_df[which(statistics_df$H == "static 5" & statistics_df$Phi == "phi1"),], aes(x=T, y=SE, colour='H=5')) +
+#   geom_line(data=statistics_df[which(statistics_df$H == "static 10" & statistics_df$Phi == "phi1"),], aes(x=T, y=SE, colour='H=10')) +
+#   geom_line(data=statistics_df[which(statistics_df$H == "static 15" & statistics_df$Phi == "phi1"),], aes(x=T, y=SE, colour='H=15')) +
+#   # geom_line(data=statistics_df[which(statistics_df$H == "static 20" & statistics_df$Phi == "phi1"),], aes(x=T, y=SE, colour='H=20')) +
+#   xlab("") + 
+#   ylab("") 
+# cs_df[which(statistics_df$H == "static 20" & statistics_df$Phi == "phi1"),]
 
 
 
