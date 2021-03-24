@@ -31,16 +31,19 @@ for (i in 1:sims) {
       }
     }
     last <- estimation_VAR1$value
+    lastEstim <- estimation_VAR1
   }
   
-  # Estimate again with the optimal H and save results
-  estimation_VAR1 <- optim(c(0,0,0,0), portmanteau_fun_VAR1, Y=sim$Y_sim, H=optimalH, control=list(maxit=1000))
+  # # Estimate again with the optimal H and save results
+  # estimation_VAR1 <- optim(c(0,0,0,0), portmanteau_fun_VAR1, Y=sim$Y_sim, H=optimalH, control=list(maxit=1000))
   
   # Add to results matrix for later export
-  params_studentT[i,1:4] <- estimation_VAR1$par
-  params_studentT[i,5] <- estimation_VAR1$convergence
+  params_studentT[i,1:4] <- lastEstim$par
+  params_studentT[i,5] <- lastEstim$convergence
   
   # print i to see progress
+  print('optimal H')
+  print(optimalH)
   print(i)
 }
 
