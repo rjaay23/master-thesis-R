@@ -9,29 +9,31 @@ A <- rbind(c(1, -1), c(0,1))
 J <- c(0.7, 2)
 sims <- 1000
 
+
+# Optimal H
+source("sim_studentT100_optimalH.R")
+
+
+
+
 # ###### Simulate Y - VAR(1) - student-t errors, T=100, dof=4 ######
-source("sim_studentT100_AIC.R")
-source("sim_studentT300_AIC.R")
-source("sim_studentT500_AIC.R")
-source("sim_studentT700_AIC.R")
-source("sim_studentT900_AIC.R")
-
-source("sim_studentT100_HQ.R")
-source("sim_studentT300_HQ.R")
-source("sim_studentT500_HQ.R")
-source("sim_studentT700_HQ.R")
-source("sim_studentT900_HQ.R")
-
-source("sim_studentT100_SC.R")
-source("sim_studentT300_SC.R")
-source("sim_studentT500_SC.R")
-source("sim_studentT700_SC.R")
-source("sim_studentT900_SC.R")
-
-
-
-
-
+# source("sim_studentT100_AIC.R")
+# source("sim_studentT300_AIC.R")
+# source("sim_studentT500_AIC.R")
+# source("sim_studentT700_AIC.R")
+# source("sim_studentT900_AIC.R")
+# 
+# source("sim_studentT100_HQ.R")
+# source("sim_studentT300_HQ.R")
+# source("sim_studentT500_HQ.R")
+# source("sim_studentT700_HQ.R")
+# source("sim_studentT900_HQ.R")
+# 
+# source("sim_studentT100_SC.R")
+# source("sim_studentT300_SC.R")
+# source("sim_studentT500_SC.R")
+# source("sim_studentT700_SC.R")
+# source("sim_studentT900_SC.R")
 
 # ###### Simulate Y - VAR(1) - student-t errors, T=100, dof=4 ######
 # source("sim_studentT100.R")
